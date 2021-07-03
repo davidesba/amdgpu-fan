@@ -56,6 +56,18 @@ class Card:
         return float(self.read_endpoint('temp1_input')) / 1000
 
     @property
+    def junction_temp(self):
+        if 'temp2_input' not in self._endpoints:
+            return None
+        return float(self.read_endpoint('temp2_input')) / 1000
+
+    @property
+    def mem_temp(self):
+        if 'temp3_input' not in self._endpoints:
+            return None
+        return float(self.read_endpoint('temp3_input')) / 1000
+
+    @property
     def fan_max(self):
         return int(self.read_endpoint('pwm1_max'))
 
